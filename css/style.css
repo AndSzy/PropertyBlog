@@ -1,17 +1,22 @@
-.scroll {
-  overflow: auto;
-}
-
-.scroll-l {
-  direction: rtl;
-}
-
-
 
 /* FOOTER */
 
 footer {
   color: #fff;
+}
+
+/* MORTAGE CALCULATOR */
+
+#monthly, #total {
+  background: none;
+  border: none;
+  width:auto;
+  font-size: 1.2rem;
+}
+
+#monthlyLabel, #totalLabel {
+  align-self: center;
+  font-size: 1.1rem;
 }
 
 /* CAROUSEL */

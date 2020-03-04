@@ -26,12 +26,54 @@
     <div class="row">
 
 
-      <!-- BLOG POSTS ------------------------------------------------------------------------------------------------------------------------------------------>
+
 
       <div class="col-lg-4">
 
+
+        <!-- MORTAGE CALCULATOR  ------------------------------------------------------------------------------------------------------------------------------------------>
+
+        <div class="mortgageCalculator bg-light">
+          <form>
+            <h4>Mortgage calculator</h4>
+            <div class="form-group">
+              <label for="amount">Mortage Amount</label>
+              <input type="number" class="form-control" id="amount" placeholder="0" value="300000">
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="rate">Interest Rate</label>
+                <input type="number" class="form-control" id="rate" placeholder="0" value="3.5" step="0.1">
+              </div>
+              <div class="col">
+                <label for="period">Period</label>
+                <input type="number" class="form-control" id="period" placeholder="0" value="30">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="d-flex justify-content-between">
+                <div id="monthlyLabel">Monthly Payments:</div>
+                <div class="form-control" id="monthly"></div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div id="totalLabel">Total Cost of Mortgage:</div>
+                <div class="form-control" id="total"></div>
+              </div>
+
+
+            </div>
+          </form>
+        </div>
+
+
+  <!-- BLOG POSTS ------------------------------------------------------------------------------------------------------------------------------------------>
+
+
         <div class="carousel slide" id="blogPostsCarousel" data-ride="carousel">
           <div class="carousel-inner">
+
+            <!-- FIRST POST - ------------------>
 
             <div class="active addClass">
             <div class="media bg-light p-3 mb-3">
@@ -43,6 +85,35 @@
                 </div>
             </div>
             </div>
+
+            <!-- SECOND POST - ------------------>
+
+            <div class="addClass">
+              <div class="media bg-light p-3 mb-3">
+                  <img class="mr-3 mt-3" src="img/stockmarket.jpg" height="90" width="90">
+                  <div class="media-body">
+                      <h5>Mieszkania droższe niż w 2008 roku, a ceny wciąż rosną</h5>
+                      <p>Końcówka 2019 roku przyniosła stabilizację cen na rynku mieszkaniowym w Polsce, przekroczyły one już jednak poziom z okresu boomu w latach 2006-2008. Według ekspertów bańka cenowa poważnie napęcznieje, jeśli dotychczasowe tempo wzrostu cen utrzyma się do 2021 roku. Pozostaje pytanie, na jaki cenowy próg bólu pozwolą kupujący mieszkania...</p>
+                      <a href="https://www.bankier.pl/wiadomosc/Mieszkania-drozsze-niz-w-2008-roku-a-ceny-wciaz-rosna-7815123.html" class="btn btn-primary btn-block">More</a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- THIRD POST - ------------------>
+
+            <div class="addClass">
+              <div class="media bg-light p-3 mb-3">
+                  <img class="mr-3 mt-3" src="img/stockmarket.jpg" height="90" width="90">
+                  <div class="media-body">
+                      <h5>Mieszkania droższe niż w 2008 roku, a ceny wciąż rosną</h5>
+                      <p>Końcówka 2019 roku przyniosła stabilizację cen na rynku mieszkaniowym w Polsce, przekroczyły one już jednak poziom z okresu boomu w latach 2006-2008. Według ekspertów bańka cenowa poważnie napęcznieje, jeśli dotychczasowe tempo wzrostu cen utrzyma się do 2021 roku. Pozostaje pytanie, na jaki cenowy próg bólu pozwolą kupujący mieszkania...</p>
+                      <a href="https://www.bankier.pl/wiadomosc/Mieszkania-drozsze-niz-w-2008-roku-a-ceny-wciaz-rosna-7815123.html" class="btn btn-primary btn-block">More</a>
+                  </div>
+              </div>
+            </div>
+
+
+            <!-- FOURTH POST - ------------------>
 
             <div class="addClass">
               <div class="media bg-light p-3 mb-3">
@@ -69,6 +140,8 @@
 
         </div>
 
+
+
       </div>
 
       <!-- CHARTS-------------------------------------------------------------------------------------------------------------------------------------------->
@@ -92,17 +165,6 @@
               <form id="citiesForm" class="form-group">
 
               </form>
-              <div>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Curency</button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">PLN</a>
-                    <a class="dropdown-item" href="#">GBP</a>
-                    <a class="dropdown-item" href="#">EUR</a>
-                    <a class="dropdown-item" href="#">USD</a>
-                  </div>
-                </div>
-              </div>
             </div>
 
 
@@ -125,17 +187,6 @@
                 <form id="existingCitiesForm" class="form-group">
 
                 </form>
-                <div>
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Curency</button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">PLN</a>
-                      <a class="dropdown-item" href="#">GBP</a>
-                      <a class="dropdown-item" href="#">EUR</a>
-                      <a class="dropdown-item" href="#">USD</a>
-                    </div>
-                  </div>
-                </div>
               </div>
 
 
@@ -143,15 +194,7 @@
             </div>
           </div>
 
-
-
-
-
-
-
-
       </div>
-
 
     </div>
   </div>

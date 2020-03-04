@@ -1,4 +1,3 @@
-
 // Fetching data from json file //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let newPropertyPricesArray = JSON.parse(newProperty);
@@ -31,9 +30,6 @@ let [dateE, bialystokE, bydgoszczE, gdanskE, gdyniaE, katowiceE, kielceE, krakow
 let arrayOfCitiesExisting = [dateE, bialystokE, bydgoszczE, gdanskE, gdyniaE, katowiceE, kielceE, krakowE, lublinE, lodzE, olsztynE, opoleE, poznanE, rzeszowE, szczecinE, warszawaE, wroclawE, zielonagoraE];
 
 
-
-
-
 // Inserting prices into city arrays //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 newPropertyPricesArray.forEach(function(object) {
@@ -49,9 +45,7 @@ existingPropertyPricesArray.forEach(function(object) {
 })
 
 
-
-
-// Constructor function //////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Constructor functions //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function CityObjects (i) {
   this.label = cityNames[i];
@@ -75,12 +69,7 @@ let [bialystokEObject, bydgoszczEObject, gdanskEObject, gdyniaEObject, katowiceE
 
 
 
-
-
-
 // Chart.js //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-let currency = "PLN"
 
 
 // New Properties Chart
@@ -107,7 +96,7 @@ let newPropertyPricesChartObject = {
         },
 				scaleLabel: {
 					display: true,
-					labelString: `${currency}/1 sq.m`
+					labelString: `PLN/1 sq.m`
 				}
       }]
     }
@@ -140,7 +129,7 @@ let existingPropertyPricesChartObject = {
         },
 				scaleLabel: {
 					display: true,
-					labelString: `${currency}/1 sq.m`
+					labelString: `PLN/1 sq.m`
 				}
       }]
     }
@@ -237,6 +226,7 @@ function existingCitiesChartUpdate() {
 }
 
 
+
 //  BLOG POSTS - making carousel that is only visible on smaller screens /////////////////////////////////////////////////////////////////////////////////////////
 
 // CAROUSEL OBJECT /////////////////////
@@ -310,3 +300,36 @@ existingPropertyButton.addEventListener('click', function () {
   let existingPropertyPricesChart = new Chart(existingPropertyPrices2, existingPropertyPricesChartObject)
 
 })
+
+
+//  MORTGAGE CALCULATOR /////////////////////////////////////////////////////////////////////////////////////////
+
+const mortageAmount = document.getElementById('amount');
+const mortageRate = document.getElementById('rate');
+const mortagePeriod = document.getElementById('period');
+
+const mortgageMonthlyCost = document.getElementById('monthly');
+const mortgageTotalCost = document.getElementById('total');
+
+function calculate () {
+	const monthsInYear = 12;
+	const amount = mortageAmount.value;
+	const rate = mortageRate.value /monthsInYear/100;
+	const period = mortagePeriod.value *monthsInYear;
+
+	console.log(amount, rate, period);
+
+	let tempMortageMonthlyCost = amount*(rate*Math.pow((1+rate),period))/(Math.pow((1+rate),period)-1);
+
+	mortgageMonthlyCost.innerText = tempMortageMonthlyCost.toFixed(2);
+
+
+
+	mortgageTotalCost.innerText = (period * tempMortageMonthlyCost).toFixed(2);
+}
+
+calculate()
+
+mortageAmount.addEventListener('input', calculate);
+mortageRate.addEventListener('input', calculate);
+mortagePeriod.addEventListener('input', calculate);
