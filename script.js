@@ -227,7 +227,19 @@ function existingCitiesChartUpdate() {
 
 
 
-//  BLOG POSTS - making carousel that is only visible on smaller screens /////////////////////////////////////////////////////////////////////////////////////////
+//  BLOG POSTS /////////////////////////////////////////////////////////////////////////////////////////
+
+// HEIGHT OF L CONTEINER EQUAL TO HEIGHT OF R CONTAINER /////////////////////
+
+let blogPosts = document.getElementById('blogPostsCarousel');
+let lastChart = document.getElementById('lastChart');
+
+let relativeHeight = lastChart.getBoundingClientRect().bottom + window.pageYOffset;
+let blogPostsTop = blogPosts.getBoundingClientRect().top + window.pageYOffset;
+
+// blogPosts.style.height = relativeHeight-blogPostsTop+"px";
+// blogPosts.style.overflowY= "auto";
+
 
 // CAROUSEL OBJECT /////////////////////
 
@@ -248,10 +260,14 @@ $('.carousel').carousel({
         carouselItems.forEach(function(item) {
           item.classList.add("carousel-item")
         })
+				blogPosts.style.height = "auto";
+				blogPosts.style.overflowY= "auto";
       } else {
         carouselItems.forEach(function(item) {
           item.classList.remove("carousel-item")
         })
+				blogPosts.style.height = relativeHeight-blogPostsTop+"px";
+				blogPosts.style.overflowY= "auto";
       }
     })
 
@@ -261,10 +277,14 @@ $('.carousel').carousel({
         carouselItems.forEach(function(item) {
           item.classList.add("carousel-item")
         })
+				blogPosts.style.height = "auto";
+				blogPosts.style.overflowY= "auto";
       } else {
         carouselItems.forEach(function(item) {
           item.classList.remove("carousel-item")
         })
+				blogPosts.style.height = relativeHeight-blogPostsTop+"px";
+				blogPosts.style.overflowY= "auto";
       }
     })
 
