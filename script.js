@@ -71,7 +71,6 @@ let [bialystokEObject, bydgoszczEObject, gdanskEObject, gdyniaEObject, katowiceE
 
 // Chart.js //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // New Properties Chart
 
 let newPropertyPricesChartObject = {
@@ -137,6 +136,7 @@ let existingPropertyPricesChartObject = {
 }
 
 
+
 	let propertyPrices = document.getElementById('propertyPrices').getContext('2d');
 	let propertyPricesChart = new Chart(propertyPrices, newPropertyPricesChartObject);
 
@@ -144,6 +144,49 @@ let existingPropertyPricesChartObject = {
 
 	let existingPropertyPrices = document.getElementById('existingPropertyPrices').getContext('2d');
 	let existingPropertyPricesChart = new Chart(existingPropertyPrices, existingPropertyPricesChartObject);
+
+	//  INTEREST RATES CHART /////////////////////////////////////////////////////////////////////////////////////////
+
+
+	const interestRatesJSON = JSON.parse(rates2);
+
+	const interestDates = [];
+	const interestValues = [];
+
+	interestRatesJSON.forEach(function(object) {
+		interestDates.push(object['Date']);
+		interestValues.push(object['Rate'].replace(/,/g, '.'));
+	})
+
+	const interestRates = document.getElementById('interestRates').getContext('2d');
+
+	let interestRatesObject = {
+		type: "line",
+		data: {
+			labels: interestDates,
+			datasets: [{
+				label: 'Interest Rates',
+				data: interestValues,
+				fill: false,
+				borderColor: "red"
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						stepSize: 1
+					}
+				}],
+				xAxes: [{
+				}]
+			}
+		}
+	}
+
+	const interestRatesChart = new Chart(interestRates, interestRatesObject);
+
 
 
 
@@ -234,8 +277,12 @@ function existingCitiesChartUpdate() {
 let blogPosts = document.getElementById('blogPostsCarousel');
 let lastChart = document.getElementById('lastChart');
 
+
 let relativeHeight = lastChart.getBoundingClientRect().bottom + window.pageYOffset;
 let blogPostsTop = blogPosts.getBoundingClientRect().top + window.pageYOffset;
+
+
+// Moved to eventListeners below
 
 // blogPosts.style.height = relativeHeight-blogPostsTop+"px";
 // blogPosts.style.overflowY= "auto";
@@ -322,6 +369,21 @@ existingPropertyButton.addEventListener('click', function () {
 })
 
 
+let interestRatesButton = document.getElementById('interestRatesButton');
+
+interestRatesButton.addEventListener('click', function () {
+	let interestRatesModalTitle = document.getElementById('interestRatesModalTitle');
+	let interestRatesTitle = document.getElementById('interestRatesTitle');
+
+	interestRatesModalTitle.innerHTML= interestRatesTitle.innerHTML;
+
+  let interestRates2 = document.getElementById('interestRates2').getContext('2d');
+
+  let existingPropertyPricesChart = new Chart(interestRates2, interestRatesObject)
+
+})
+
+
 //  MORTGAGE CALCULATOR /////////////////////////////////////////////////////////////////////////////////////////
 
 const mortageAmount = document.getElementById('amount');
@@ -331,13 +393,12 @@ const mortagePeriod = document.getElementById('period');
 const mortgageMonthlyCost = document.getElementById('monthly');
 const mortgageTotalCost = document.getElementById('total');
 
-function calculate () {
+function calculateMortgage () {
 	const monthsInYear = 12;
 	const amount = mortageAmount.value;
 	const rate = mortageRate.value /monthsInYear/100;
 	const period = mortagePeriod.value *monthsInYear;
 
-	console.log(amount, rate, period);
 
 	let tempMortageMonthlyCost = amount*(rate*Math.pow((1+rate),period))/(Math.pow((1+rate),period)-1);
 
@@ -348,8 +409,8 @@ function calculate () {
 	mortgageTotalCost.innerText = (period * tempMortageMonthlyCost).toFixed(2);
 }
 
-calculate()
+calculateMortgage()
 
-mortageAmount.addEventListener('input', calculate);
-mortageRate.addEventListener('input', calculate);
-mortagePeriod.addEventListener('input', calculate);
+mortageAmount.addEventListener('input', calculateMortgage);
+mortageRate.addEventListener('input', calculateMortgage);
+mortagePeriod.addEventListener('input', calculateMortgage);

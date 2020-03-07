@@ -30,7 +30,6 @@
 
       <div class="col-lg-4">
 
-
         <!-- MORTAGE CALCULATOR  ------------------------------------------------------------------------------------------------------------------------------------------>
 
         <div class="mortgageCalculator bg-light">
@@ -65,6 +64,10 @@
             </div>
           </form>
         </div>
+
+
+
+
 
 
   <!-- BLOG POSTS ------------------------------------------------------------------------------------------------------------------------------------------>
@@ -126,6 +129,19 @@
               </div>
             </div>
 
+            <!-- FIFTH POST - ------------------>
+
+            <div class="addClass">
+              <div class="media bg-light p-3 mb-3">
+                  <img class="mr-3 mt-3" src="img/stockmarket.jpg" height="90" width="90">
+                  <div class="media-body">
+                      <h5>Mieszkania droższe niż w 2008 roku, a ceny wciąż rosną</h5>
+                      <p>Końcówka 2019 roku przyniosła stabilizację cen na rynku mieszkaniowym w Polsce, przekroczyły one już jednak poziom z okresu boomu w latach 2006-2008. Według ekspertów bańka cenowa poważnie napęcznieje, jeśli dotychczasowe tempo wzrostu cen utrzyma się do 2021 roku. Pozostaje pytanie, na jaki cenowy próg bólu pozwolą kupujący mieszkania...</p>
+                      <a href="https://www.bankier.pl/wiadomosc/Mieszkania-drozsze-niz-w-2008-roku-a-ceny-wciaz-rosna-7815123.html" class="btn btn-primary btn-block">More</a>
+                  </div>
+              </div>
+            </div>
+
           </div>
 
           <!-- CONTROLS ------------------------------------->
@@ -139,7 +155,6 @@
 
 
         </div>
-
 
 
       </div>
@@ -168,6 +183,7 @@
             </div>
 
 
+
             <canvas id="propertyPrices" width="400" height="400"></canvas>
           </div>
         </div>
@@ -175,7 +191,7 @@
 
         <!--EXISTING PROPERTY PRICES INDEX ------------------------------------------------------------------------------------------------------------------------>
 
-          <div class="card border-primary my-3" id="lastChart">
+          <div class="card border-primary my-3">
             <div class="card-body">
               <div class="card-title d-flex justify-content-between">
                 <h4 id="existingPropertiesTitle">Existing Properties Price Index (Offer Prices)</h4>
@@ -193,6 +209,22 @@
               <canvas id="existingPropertyPrices" width="400" height="400"></canvas>
             </div>
           </div>
+
+            <!--INTEREST RATES - POLAND ------------------------------------------------------------------------------------------------------------------------>
+
+          <div class="card border-primary mt-3 mb-5" id="lastChart">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-between">
+                <h4 id="interestRatesTitle">Interest Rates</h4>
+                <button class="close" data-toggle="modal" data-target="#interestRatesModal" id="interestRatesButton"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+              <p>Interest Rates between 1998 and now, according to the official National Bank of Poland (Narodowy Bank Polski) data. </p>
+              <canvas id="interestRates"width="400" height="400"></canvas>
+            </div>
+          </div>
+
+
+
 
       </div>
 
@@ -216,7 +248,6 @@
 
 
   <div class="modal fade text-dark" id="newPropertyModal">
-
     <div class="modal-dialog modal-full">
       <div class="modal-content">
         <div class="modal-header">
@@ -230,8 +261,8 @@
     </div>
   </div>
 
-  <div class="modal fade text-dark" id="existingPropertyModal">
 
+  <div class="modal fade text-dark" id="existingPropertyModal">
     <div class="modal-dialog modal-full">
       <div class="modal-content">
         <div class="modal-header">
@@ -240,6 +271,21 @@
         </div>
         <div class="modal-body">
         <canvas id="existingPropertyPrices2" width="850" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade text-dark" id="interestRatesModal">
+    <div class="modal-dialog modal-full">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="interestRatesModalTitle">Title</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+        <canvas id="interestRates2" width="850" height="400"></canvas>
         </div>
       </div>
     </div>
@@ -258,6 +304,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type="text/javascript" src="json/propertyPrices.json"></script>
+<script type="text/javascript" src="json/interestRates.json"></script>
 <script src="script.js"></script>
 
 <script>
